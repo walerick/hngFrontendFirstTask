@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Frontend Page</title>
+    <style>
+        /* Card container styles */
+        .card {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Slack username styles */
+        .slack-username {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Slack profile image styles */
+        .slack-profile-image {
+            max-width: 100%;
+            height: auto;
+            margin-top: 10px;
+            border-radius: 50%;
+        }
+
+        /* Current day and UTC time styles */
+        .info {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        /* Track and GitHub URL styles */
+        .track {
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .github-link {
+            display: block;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1 class="slack-username" data-testid="slackUserName">Kaizen</h1>
+        <img src="https://ca.slack-edge.com/T05FFAA91JP-U05RBBGQ6KW-227693c990d7-512" alt="Kaizen" class="slack-profile-image" data-testid="slackDisplayImage">
+        <p class="info" data-testid="currentDayOfTheWeek"></p>
+        <p class="info" data-testid="currentUTCTime"></p>
+        <p class="track" data-testid="myTrack">Frontend</p>
+        <a href="https://github.com/walerick/hngFrontendFirstTask.git" class="github-link" data-testid="githubURL">GitHub Repository</a>
+    </div>
+
+    <script>
+        // JavaScript code to update the current day of the week and UTC time
+        const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        const currentDate = new Date();
+        const currentDay = daysOfWeek[currentDate.getUTCDay()];
+        const currentUTCTime = currentDate.getTime();
+
+        document.querySelector('[data-testid="currentDayOfTheWeek"]').textContent = `Current Day: ${currentDay}`;
+        document.querySelector('[data-testid="currentUTCTime"]').textContent = `Current UTC Time: ${currentUTCTime} milliseconds`;
+    </script>
+</body>
+</html>
